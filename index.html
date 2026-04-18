@@ -33,8 +33,8 @@
     .hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.4rem, 5.5vw, 4rem); font-weight: 600; line-height: 1.08; color: var(--black); margin-bottom: 1.5rem; }
 
     .phrase-wrap { position: relative; display: inline; }
-    .phrase-base { font-style: italic; color: var(--black); }
-    .phrase-red { font-style: italic; color: var(--red); position: absolute; left: 0; top: 0; white-space: nowrap; clip-path: inset(0 0% 0 0); }
+    .phrase-base { font-style: italic; color: transparent; }
+    .phrase-red { font-style: italic; color: var(--red); position: absolute; left: 0; top: 0; white-space: nowrap; clip-path: inset(0 0 0 ${clipPct.toFixed(2)}%)
 
     .hero p { font-size: 1rem; color: var(--muted); max-width: 480px; margin: 0 auto 2.5rem; line-height: 1.8; font-weight: 300; }
     .hero-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
@@ -388,7 +388,7 @@ function getScrollP() {
 
 function draw() {
   const rawP = getScrollP();
-  smoothP += (rawP - smoothP) * 0.05;
+  smoothP += (rawP - smoothP) * 0.12;
 
   const W  = canvas.width;
   const H  = canvas.height;
@@ -402,7 +402,7 @@ function draw() {
   phraseRed.style.clipPath = `inset(0 ${clipPct.toFixed(2)}% 0 0)`;
 
   // Phase 2: draw thread (0.05 → 1)
-  const threadP = Math.max(0, (smoothP - 0.05) / 0.95);
+  const threadP = Math.max(0, (smoothP - 0.02) / 0.98);
 
   if (threadP > 0.004 && pts.length > 0) {
     // Ghost path
