@@ -303,15 +303,17 @@ function buildPath() {
   const finalEl  = document.getElementById('finalSection');
   const finalRect = finalEl.getBoundingClientRect();
 
-  const startX = wrapRect.left + wrapRect.width * 0.75;
-  const startY = wrapRect.top + scrollY + wrapRect.height * 0.65;
+  const startX = wrapRect.left + wrapRect.width * 0.55;
+  const startY = wrapRect.top + scrollY + wrapRect.height * 0.85;
   const endX   = W / 2;
   const endY   = finalRect.top + scrollY + finalRect.height * 0.3;
   const span   = endY - startY;
 
   pts = [
-    { x: startX,    y: startY            },
-    { x: W * 0.85,  y: startY + span*0.08 },
+    { x: startX,         y: startY             },
+    { x: startX + 30,    y: startY + span*0.03  },
+    { x: startX + 60,    y: startY + span*0.06  },
+    { x: W * 0.85,       y: startY + span*0.10  },
     { x: W * 0.92,  y: startY + span*0.18 },
     { x: W * 0.87,  y: startY + span*0.27 },
     { x: W * 0.93,  y: startY + span*0.37 },
