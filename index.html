@@ -375,8 +375,8 @@ function draw() {
 
   // Phase 2: thread grows from the S (scroll 0.06→1)
   // Thread opacity fades in gently at start so it doesn't "pop"
-  const threadP   = Math.max(0, (smoothP - 0.06) / 0.94);
-  const fadeIn    = Math.min(1, threadP * 8); // fade in over first 12% of thread
+  const threadP   = Math.max(0, (smoothP - 0.01) / 0.99);
+  const fadeIn    = Math.min(1, threadP * 3); // fade in over first 12% of thread
 
   if (threadP > 0.001 && pathBuilt) {
 
