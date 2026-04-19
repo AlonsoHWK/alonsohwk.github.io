@@ -303,8 +303,8 @@ function buildPath() {
   const finalEl  = document.getElementById('finalSection');
   const finalRect = finalEl.getBoundingClientRect();
 
-  const startX = Math.min(wrapRect.right + 16, W * 0.95);
-  const startY = wrapRect.top + scrollY + wrapRect.height * 0.5;
+  const startX = wrapRect.left + wrapRect.width * 0.75;
+  const startY = wrapRect.top + scrollY + wrapRect.height * 0.65;
   const endX   = W / 2;
   const endY   = finalRect.top + scrollY + finalRect.height * 0.3;
   const span   = endY - startY;
@@ -372,7 +372,7 @@ function draw() {
   phraseBlack.style.clipPath = 'inset(0 ' + (100 - pct).toFixed(2) + '% 0 0)';
 
   // Phase 2: thread draws (scroll 0.02 → 1)
-  const threadP = Math.max(0, (smoothP - 0.02) / 0.98);
+  const threadP = Math.max(0, (smoothP - 0.05) / 0.95);
 
   if (threadP > 0.004 && pts.length > 0) {
     // Ghost path
