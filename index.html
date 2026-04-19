@@ -354,7 +354,7 @@ function easeOut(t) { return 1 - Math.pow(1-t, 2.5); }
 function draw() {
   const rawP = getScrollP();
   // Faster lerp — snappier scroll response
-  smoothP += (rawP - smoothP) * 0.12;
+  smoothP += (rawP - smoothP) * 0.18;
 
   const W  = canvas.width;
   const H  = canvas.height;
